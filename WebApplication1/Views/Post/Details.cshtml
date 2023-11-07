@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Post
+
+<h1>Details</h1>
+
+<div class="card">
+  <img src="@Model.ImageUrl" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">@Model.Title</h5>
+    <p class="card-text">@Model.Category.Name</p>
+  </div>
+  <ul class="list-group list-group-flush">
+      @foreach (var item in @Model.PostTags)
+      {
+            <li class="list-group-item">@item.Tag.Name</li>
+      }
+  
+  </ul>
+  <div class="card-body">
+    <span  class="card-link">@Html.Raw(@Model.Content)</span>
+    <a asp-action="Index" asp-controller="Post" class="card-link">Back</a>
+  </div>
+</div>
